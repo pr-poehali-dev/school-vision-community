@@ -47,13 +47,13 @@ const Index = () => {
       image: 'https://cdn.poehali.dev/projects/d6c97204-1880-4bf8-8371-f22dcfc92ae1/files/85391844-702f-4afb-a09e-ead11ad7073d.jpg',
       title: 'День Победы 2025',
       category: 'Школьное мероприятие',
-      link: ''
+      link: 'https://vk.com/wall-224875668_121'
     },
     {
       image: 'https://cdn.poehali.dev/projects/d6c97204-1880-4bf8-8371-f22dcfc92ae1/files/5a3081f2-eaf5-40c0-bf85-15d7d18b318b.jpg',
       title: 'День Школы 2025 - 65 лет',
       category: 'Школьное мероприятие',
-      link: ''
+      link: 'https://vk.com/wall-224875668_103'
     }
   ];
 
