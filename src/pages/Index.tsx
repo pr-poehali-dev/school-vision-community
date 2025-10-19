@@ -46,9 +46,9 @@ const Index = () => {
       image: 'https://cdn.poehali.dev/projects/d6c97204-1880-4bf8-8371-f22dcfc92ae1/files/85391844-702f-4afb-a09e-ead11ad7073d.jpg'
     },
     {
-      title: 'Репортаж с осеннего бала',
-      date: '8 октября 2024',
-      excerpt: 'Яркие моменты традиционного школьного праздника в фотографиях и видео',
+      title: 'Новогодние мероприятия в МОАУ «СОШ №48»',
+      date: 'ЗАПЛАНИРОВАНО',
+      excerpt: 'Готовимся к волшебным новогодним праздникам: утренники для младших классов, дискотека для старшеклассников и праздничный концерт',
       image: 'https://cdn.poehali.dev/projects/d6c97204-1880-4bf8-8371-f22dcfc92ae1/files/5a3081f2-eaf5-40c0-bf85-15d7d18b318b.jpg'
     }
   ];
@@ -253,15 +253,7 @@ const Index = () => {
                     <a href="https://vk.com/club224875668" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">vk.com/club224875668</a>
                   </div>
                 </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0">
-                    <Icon name="MapPin" size={20} className="text-accent" />
-                  </div>
-                  <div>
-                    <h5 className="font-semibold mb-1">Адрес</h5>
-                    <p className="text-muted-foreground">Кабинет медиацентра, 3 этаж</p>
-                  </div>
-                </div>
+
               </div>
               <form className="space-y-4">
                 <div>
