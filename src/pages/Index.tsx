@@ -41,7 +41,7 @@ const Index = () => {
     },
     {
       title: 'Интервью с директором',
-      date: '12 октября 2024',
+      date: 'ЗАПЛАНИРОВАНО',
       excerpt: 'Эксклюзивное интервью о планах развития школы и новых образовательных инициативах',
       image: 'https://cdn.poehali.dev/projects/d6c97204-1880-4bf8-8371-f22dcfc92ae1/files/85391844-702f-4afb-a09e-ead11ad7073d.jpg'
     },
@@ -91,7 +91,10 @@ const Index = () => {
               >
                 Контакты
               </button>
-              <Button className="bg-gradient-to-r from-primary to-secondary hover:opacity-90">
+              <Button 
+                className="bg-gradient-to-r from-primary to-secondary hover:opacity-90"
+                onClick={() => window.open('https://vk.com/club224875668', '_blank')}
+              >
                 Наша группа VK
               </Button>
             </div>
@@ -238,7 +241,7 @@ const Index = () => {
                   </div>
                   <div>
                     <h5 className="font-semibold mb-1">Email</h5>
-                    <p className="text-muted-foreground">school.view@example.com</p>
+                    <p className="text-muted-foreground">vhplaycool@gmail.com</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
@@ -247,7 +250,7 @@ const Index = () => {
                   </div>
                   <div>
                     <h5 className="font-semibold mb-1">VK Сообщество</h5>
-                    <a href="#" className="text-primary hover:underline">vk.com/school_view</a>
+                    <a href="https://vk.com/club224875668" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">vk.com/club224875668</a>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
