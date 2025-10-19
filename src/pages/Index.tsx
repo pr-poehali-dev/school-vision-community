@@ -17,12 +17,12 @@ const Index = () => {
   const portfolioItems = [
     {
       image: 'https://cdn.poehali.dev/projects/d6c97204-1880-4bf8-8371-f22dcfc92ae1/files/9f8d33b7-f510-47de-8192-96004e784db7.jpg',
-      title: 'День знаний 2024',
+      title: 'День Знаний 2025',
       category: 'Школьные события'
     },
     {
       image: 'https://cdn.poehali.dev/projects/d6c97204-1880-4bf8-8371-f22dcfc92ae1/files/85391844-702f-4afb-a09e-ead11ad7073d.jpg',
-      title: 'Осенний фестиваль',
+      title: 'День Победы 2025',
       category: 'Мероприятия'
     },
     {
