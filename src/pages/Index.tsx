@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -7,6 +7,28 @@ import Icon from '@/components/ui/icon';
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState('home');
+  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+
+  useEffect(() => {
+    const calculateTimeLeft = () => {
+      const newYear = new Date('2026-01-01T00:00:00').getTime();
+      const now = new Date().getTime();
+      const difference = newYear - now;
+
+      if (difference > 0) {
+        setTimeLeft({
+          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+          minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
+          seconds: Math.floor((difference % (1000 * 60)) / 1000)
+        });
+      }
+    };
+
+    calculateTimeLeft();
+    const timer = setInterval(calculateTimeLeft, 1000);
+    return () => clearInterval(timer);
+  }, []);
 
   const scrollToSection = (section: string) => {
     setActiveSection(section);
@@ -18,19 +40,19 @@ const Index = () => {
     {
       image: 'https://cdn.poehali.dev/projects/d6c97204-1880-4bf8-8371-f22dcfc92ae1/files/9f8d33b7-f510-47de-8192-96004e784db7.jpg',
       title: 'День Знаний 2025',
-      category: 'Школьные события',
+      category: 'Школьное мероприятие',
       link: 'https://vk.com/wall-224875668_178'
     },
     {
       image: 'https://cdn.poehali.dev/projects/d6c97204-1880-4bf8-8371-f22dcfc92ae1/files/85391844-702f-4afb-a09e-ead11ad7073d.jpg',
       title: 'День Победы 2025',
-      category: 'Мероприятия',
+      category: 'Школьное мероприятие',
       link: ''
     },
     {
       image: 'https://cdn.poehali.dev/projects/d6c97204-1880-4bf8-8371-f22dcfc92ae1/files/5a3081f2-eaf5-40c0-bf85-15d7d18b318b.jpg',
-      title: 'Работа редакции',
-      category: 'За кадром',
+      title: 'День Школы 2025 - 65 лет',
+      category: 'Школьное мероприятие',
       link: ''
     }
   ];
@@ -38,7 +60,7 @@ const Index = () => {
   const newsItems = [
     {
       title: 'Запуск нового медиапроекта',
-      date: '15 октября 2024',
+      date: 'ЗАПЛАНИРОВАНО',
       excerpt: 'Школьный взгляд представляет новую серию видеорепортажей о жизни нашей школы',
       image: 'https://cdn.poehali.dev/projects/d6c97204-1880-4bf8-8371-f22dcfc92ae1/files/9f8d33b7-f510-47de-8192-96004e784db7.jpg'
     },
@@ -200,12 +222,46 @@ const Index = () => {
         </div>
       </section>
 
+      <section className="py-20 px-4 bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/10">
+        <div className="container mx-auto max-w-4xl text-center">
+          <h3 className="text-3xl md:text-4xl font-bold mb-8 animate-fade-in">
+            До Нового 2026 года осталось
+          </h3>
+          <div className="grid grid-cols-4 gap-4 md:gap-8 animate-scale-in">
+            <div className="bg-white rounded-2xl p-6 shadow-lg">
+              <div className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                {timeLeft.days}
+              </div>
+              <div className="text-sm md:text-base text-muted-foreground mt-2">дней</div>
+            </div>
+            <div className="bg-white rounded-2xl p-6 shadow-lg">
+              <div className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                {timeLeft.hours}
+              </div>
+              <div className="text-sm md:text-base text-muted-foreground mt-2">часов</div>
+            </div>
+            <div className="bg-white rounded-2xl p-6 shadow-lg">
+              <div className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                {timeLeft.minutes}
+              </div>
+              <div className="text-sm md:text-base text-muted-foreground mt-2">минут</div>
+            </div>
+            <div className="bg-white rounded-2xl p-6 shadow-lg">
+              <div className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                {timeLeft.seconds}
+              </div>
+              <div className="text-sm md:text-base text-muted-foreground mt-2">секунд</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="news" className="py-20 px-4">
         <div className="container mx-auto">
           <div className="text-center mb-12 animate-fade-in">
-            <h3 className="text-3xl md:text-4xl font-bold mb-4">Последние новости</h3>
+            <h3 className="text-3xl md:text-4xl font-bold mb-4">Наши планы</h3>
             <p className="text-muted-foreground text-lg">
-              Следите за событиями нашей школы
+              То, что мы запланировали
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
@@ -227,10 +283,7 @@ const Index = () => {
                   </div>
                   <h4 className="text-xl font-semibold">{news.title}</h4>
                   <p className="text-muted-foreground">{news.excerpt}</p>
-                  <Button variant="link" className="p-0 h-auto text-primary">
-                    Читать далее
-                    <Icon name="ArrowRight" size={16} className="ml-2" />
-                  </Button>
+                  <span className="text-muted-foreground text-sm">Скоро</span>
                 </CardContent>
               </Card>
             ))}
