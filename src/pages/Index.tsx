@@ -18,17 +18,20 @@ const Index = () => {
     {
       image: 'https://cdn.poehali.dev/projects/d6c97204-1880-4bf8-8371-f22dcfc92ae1/files/9f8d33b7-f510-47de-8192-96004e784db7.jpg',
       title: 'День Знаний 2025',
-      category: 'Школьные события'
+      category: 'Школьные события',
+      link: 'https://vk.com/wall-224875668_178'
     },
     {
       image: 'https://cdn.poehali.dev/projects/d6c97204-1880-4bf8-8371-f22dcfc92ae1/files/85391844-702f-4afb-a09e-ead11ad7073d.jpg',
       title: 'День Победы 2025',
-      category: 'Мероприятия'
+      category: 'Мероприятия',
+      link: ''
     },
     {
       image: 'https://cdn.poehali.dev/projects/d6c97204-1880-4bf8-8371-f22dcfc92ae1/files/5a3081f2-eaf5-40c0-bf85-15d7d18b318b.jpg',
       title: 'Работа редакции',
-      category: 'За кадром'
+      category: 'За кадром',
+      link: ''
     }
   ];
 
@@ -175,10 +178,21 @@ const Index = () => {
                 </div>
                 <CardContent className="p-6">
                   <h4 className="text-xl font-semibold mb-2">{item.title}</h4>
-                  <Button variant="ghost" className="p-0 h-auto text-primary">
-                    Смотреть проект
-                    <Icon name="ArrowRight" size={16} className="ml-2" />
-                  </Button>
+                  {item.link ? (
+                    <Button 
+                      variant="ghost" 
+                      className="p-0 h-auto text-primary"
+                      onClick={() => window.open(item.link, '_blank')}
+                    >
+                      Смотреть запись трансляции
+                      <Icon name="ArrowRight" size={16} className="ml-2" />
+                    </Button>
+                  ) : (
+                    <Button variant="ghost" className="p-0 h-auto text-muted-foreground" disabled>
+                      Смотреть запись трансляции
+                      <Icon name="ArrowRight" size={16} className="ml-2" />
+                    </Button>
+                  )}
                 </CardContent>
               </Card>
             ))}
